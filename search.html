@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛍️ Product Finder</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #f8f8ff, #f0f8ff);
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 12px;
+            width: 300px;
+            border: 2px solid #888;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin-left: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #results {
+            margin-top: 30px;
+            font-size: 18px;
+        }
+
+        a {
+            display: inline-block;
+            margin: 8px;
+            padding: 10px 15px;
+            background-color: #e0e0ff;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #2a2a85;
+            transition: 0.2s;
+        }
+
+        a:hover {
+            background-color: #cfcfff;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🔍 Search for a Product</h1>
+    <input type="text" id="searchBox" placeholder="e.g. laptop, shoes, headphones">
+    <button onclick="searchProduct()">Search</button>
+
+    <div id="results"></div>
+
+    <script>
+        function searchProduct() {
+            const query = document.getElementById("searchBox").value.trim();
+            const results = document.getElementById("results");
+
+            if (query === "") {
+                results.innerHTML = "❌ Please enter a product name.";
+                return;
+            }
+
+            const websites = [
+                { name: "Amazon", link: `https://www.amazon.com/s?k=${query}` },
+                { name: "AliExpress", link: `https://www.aliexpress.com/wholesale?SearchText=${query}` },
+                { name: "Shein", link: `https://www.shein.com/Search?keyword=${query}` },
+                { name: "Temu", link: `https://www.temu.com/search?q=${query}` },
+                { name: "eBay", link: `https://www.ebay.com/sch/i.html?_nkw=${query}` },
+                { name: "Walmart", link: `https://www.walmart.com/search?q=${query}` },
+                { name: "Etsy", link: `https://www.etsy.com/search?q=${query}` },
+                { name: "Newegg", link: `https://www.newegg.com/p/pl?d=${query}` },
+                { name: "Flipkart", link: `https://www.flipkart.com/search?q=${query}` },
+                { name: "Target", link: `https://www.target.com/s?searchTerm=${query}` }
+            ];
+
+            let links = websites.map(site =>
+                `<a href="${site.link}" target="_blank">🔗 ${site.name}</a>`).join("");
+
+            results.innerHTML = `✅ Found results for <strong>${query}</strong>:<br><br>${links}`;
+        }
+    </script>
+
+</body>
+</html>
