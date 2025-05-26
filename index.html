@@ -3,19 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🛍️ Product Finder</title>
+    <title>🛍️ ShopScope</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #f8f8ff, #f0f8ff);
-            color: #333;
+            font-family: 'Franklin Gothic Demi Cond', sans-serif;
+            background-color: #d3d3d3;
+            color: black;
             text-align: center;
             padding: 50px;
+            margin: 0;
         }
 
         h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        p.tagline {
+            font-size: 20px;
+            margin-bottom: 30px;
         }
 
         input[type="text"] {
@@ -64,7 +70,9 @@
 </head>
 <body>
 
-    <h1>🔍 Search for a Product</h1>
+    <h1>ShopScope</h1>
+    <p class="tagline">Search your favorite stores in one place</p>
+
     <input type="text" id="searchBox" placeholder="e.g. laptop, shoes, headphones">
     <button onclick="searchProduct()">Search</button>
 
